@@ -1,0 +1,147 @@
+{
+  "generated_at": "2026-05-27T18:00:00Z",
+  "interactions": [
+    {
+      "id": "int_001",
+      "source": "intercom",
+      "received_at": "2026-05-27T15:42:11Z",
+      "author_handle": "user_a7b2",
+      "excerpt": "I would be very disappointed if this disappeared. The weekly digest is the only reason I check email on Mondays.",
+      "origin_activity": "mcp__intercom__list_conversations",
+      "origin_auth_ref": "auth_ref:intercom/operator-readonly"
+    },
+    {
+      "id": "int_002",
+      "source": "discord",
+      "received_at": "2026-05-27T16:05:48Z",
+      "author_handle": "user_c91f",
+      "excerpt": "Cannot export to CSV. Tried three times, button does nothing on Firefox.",
+      "origin_activity": "mcp__discord__fetch_channel_messages",
+      "origin_auth_ref": "auth_ref:discord/support-bot"
+    },
+    {
+      "id": "int_003",
+      "source": "survey",
+      "received_at": "2026-05-27T17:11:02Z",
+      "author_handle": "user_5e10",
+      "excerpt": "Somewhat disappointed. It's nice but I would not pay for it yet.",
+      "origin_activity": "mcp__typeform__list_responses",
+      "origin_auth_ref": "auth_ref:typeform/pmf-survey-readonly"
+    }
+  ],
+  "signals": [
+    {
+      "id": "sig_001",
+      "interaction_id": "int_001",
+      "kind": "very_disappointed",
+      "confidence": 0.94,
+      "classifier_version": "pmf-clf@2026-04-09"
+    },
+    {
+      "id": "sig_002",
+      "interaction_id": "int_001",
+      "kind": "must_have_quote",
+      "confidence": 0.81,
+      "classifier_version": "pmf-clf@2026-04-09"
+    },
+    {
+      "id": "sig_003",
+      "interaction_id": "int_002",
+      "kind": "bug_report",
+      "confidence": 0.97,
+      "classifier_version": "pmf-clf@2026-04-09"
+    },
+    {
+      "id": "sig_004",
+      "interaction_id": "int_003",
+      "kind": "somewhat_disappointed",
+      "confidence": 0.88,
+      "classifier_version": "pmf-clf@2026-04-09"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "cand_001",
+      "title": "Firefox CSV export silently fails",
+      "signal_ids": ["sig_003"],
+      "status": "candidate",
+      "proposed_activity": "mcp__github__create_issue",
+      "proposed_auth_ref": "auth_ref:github/bot-issues-write"
+    },
+    {
+      "id": "cand_002",
+      "title": "Weekly digest is the PMF anchor — protect and instrument",
+      "signal_ids": ["sig_001", "sig_002"],
+      "status": "accepted",
+      "proposed_activity": "mcp__linear__create_issue",
+      "proposed_auth_ref": "auth_ref:linear/bot-issues-write"
+    },
+    {
+      "id": "cand_003",
+      "title": "Pricing perception soft — somewhat-disappointed cluster",
+      "signal_ids": ["sig_004"],
+      "status": "candidate",
+      "proposed_activity": "mcp__notion__append_page",
+      "proposed_auth_ref": "auth_ref:notion/pmf-tracker"
+    }
+  ],
+  "approvals": [
+    {
+      "id": "appr_001",
+      "issue_candidate_id": "cand_001",
+      "requested_at": "2026-05-27T17:30:00Z",
+      "decision": "pending",
+      "gated_activity": "mcp__github__create_issue",
+      "gated_auth_ref": "auth_ref:github/bot-issues-write"
+    },
+    {
+      "id": "appr_002",
+      "issue_candidate_id": "cand_002",
+      "requested_at": "2026-05-27T17:33:14Z",
+      "decision": "approved",
+      "decided_by": "op_jordan",
+      "gated_activity": "mcp__linear__create_issue",
+      "gated_auth_ref": "auth_ref:linear/bot-issues-write"
+    },
+    {
+      "id": "appr_003",
+      "issue_candidate_id": "cand_003",
+      "requested_at": "2026-05-27T17:40:55Z",
+      "decision": "pending",
+      "gated_activity": "mcp__notion__append_page",
+      "gated_auth_ref": "auth_ref:notion/pmf-tracker"
+    }
+  ],
+  "recent_activities": [
+    {
+      "activity_name": "mcp__linear__create_issue",
+      "workflow_id": "wf_feedback_loop_2026_05_27",
+      "run_id": "run_8c2a",
+      "attempt": 1,
+      "status": "completed",
+      "scheduled_at": "2026-05-27T17:33:30Z",
+      "output_artifact_ref": "claimcheck://artifacts/linear/issue_create_8c2a.json",
+      "auth_ref": "auth_ref:linear/bot-issues-write"
+    },
+    {
+      "activity_name": "mcp__intercom__list_conversations",
+      "workflow_id": "wf_feedback_loop_2026_05_27",
+      "run_id": "run_3d11",
+      "attempt": 1,
+      "status": "completed",
+      "scheduled_at": "2026-05-27T15:41:50Z",
+      "output_artifact_ref": "claimcheck://artifacts/intercom/list_3d11.json",
+      "auth_ref": "auth_ref:intercom/operator-readonly"
+    },
+    {
+      "activity_name": "mcp__typeform__list_responses",
+      "workflow_id": "wf_feedback_loop_2026_05_27",
+      "run_id": "run_5fa2",
+      "attempt": 1,
+      "status": "completed",
+      "scheduled_at": "2026-05-27T17:10:45Z",
+      "output_artifact_ref": "claimcheck://artifacts/typeform/list_5fa2.json",
+      "auth_ref": "auth_ref:typeform/pmf-survey-readonly"
+    }
+  ]
+}
