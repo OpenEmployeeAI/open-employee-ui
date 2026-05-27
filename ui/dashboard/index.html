@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OpenEmployee — Feedback Loop (operator view)</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Feedback Loop</h1>
+    <p class="subtitle">
+      Inbound → PMF signals → Issue candidates → Approval queue → Activity execution.
+      Read-only operator view. All external actions are
+      <code>mcp__&lt;server&gt;__&lt;tool&gt;</code> Activities; credentials
+      shown only as <code>auth_ref</code>.
+    </p>
+    <p id="snapshot-meta" class="muted"></p>
+  </header>
+
+  <main>
+    <section id="section-interactions">
+      <h2>Inbound interactions</h2>
+      <div class="grid" id="interactions"></div>
+    </section>
+
+    <section id="section-signals">
+      <h2>PMF signal taxonomy</h2>
+      <div class="grid" id="signals"></div>
+    </section>
+
+    <section id="section-candidates">
+      <h2>Issue candidates</h2>
+      <div class="grid" id="candidates"></div>
+    </section>
+
+    <section id="section-approvals">
+      <h2>Approval queue</h2>
+      <div class="grid" id="approvals"></div>
+    </section>
+
+    <section id="section-activities">
+      <h2>Recent Activity executions</h2>
+      <div class="grid" id="activities"></div>
+    </section>
+  </main>
+
+  <footer class="muted">
+    Static design stub. No backend calls. Replace
+    <code>../mock/snapshot.json</code> with a live snapshot endpoint once the
+    transport contract is agreed.
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
